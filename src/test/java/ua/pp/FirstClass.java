@@ -1,19 +1,15 @@
 package ua.pp;
 
-
         import org.junit.After;
         import org.junit.Assert;
-        import org.junit.Assert.*;
         import org.junit.Before;
         import org.junit.Test;
         import org.openqa.selenium.By;
         import org.openqa.selenium.WebDriver;
         import org.openqa.selenium.firefox.FirefoxDriver;
-        import org.openqa.selenium.firefox.FirefoxProfile;
-        import org.openqa.selenium.firefox.internal.ProfilesIni;
-
+//        import org.openqa.selenium.firefox.FirefoxProfile;
+//        import org.openqa.selenium.firefox.internal.ProfilesIni;
         import java.util.concurrent.TimeUnit;
-
 
 public class FirstClass {
 
@@ -58,8 +54,10 @@ public class FirstClass {
 
     @After // Runs this method after all the test methods in the current class have been run
     public void tearDown() throws Exception {
-        // Close all browser windows and safely end the session
-         driver.quit();
+
+        driver.close();
+        driver.quit();
+
     }
 
 }
