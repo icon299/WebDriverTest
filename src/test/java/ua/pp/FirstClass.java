@@ -7,8 +7,9 @@ package ua.pp;
         import org.openqa.selenium.By;
         import org.openqa.selenium.WebDriver;
         import org.openqa.selenium.firefox.FirefoxDriver;
-//        import org.openqa.selenium.firefox.FirefoxProfile;
-//        import org.openqa.selenium.firefox.internal.ProfilesIni;
+        import org.openqa.selenium.firefox.FirefoxProfile;
+        import org.openqa.selenium.firefox.FirefoxProfile;
+        import org.openqa.selenium.firefox.internal.ProfilesIni;
         import java.util.concurrent.TimeUnit;
 
 public class FirstClass {
@@ -18,7 +19,9 @@ public class FirstClass {
     @Before
     public void setUp() throws Exception {
 
-        driver = new FirefoxDriver();
+        ProfilesIni profile = new ProfilesIni();
+        FirefoxProfile testProfile = profile.getProfile("profileToolsQA");
+        driver = new FirefoxDriver(testProfile);
 
     }
 
@@ -26,7 +29,8 @@ public class FirstClass {
     public void gotoSeleniumWikiPage() {
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.navigate().to("https://en.wikipedia.org/");
+        driver.get("https://en.wikipedia.org/");
+        //driver.navigate().to("https://en.wikipedia.org/");
 
         // Find the text input element by its id and type "Selenium"
         driver.findElement(By.id("searchInput")).sendKeys("Selenium");
